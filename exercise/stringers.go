@@ -1,16 +1,20 @@
 package main
 
-import "fmt"
+import (
+  "fmt"
+  "strconv"
+)
 
 type IPAddr [4]byte
 
 func (ipAddr IPAddr) String() string {
   var str string = ""
 
-  for _, num := range ipAddr {
-    // TODO: This conversion creates an empty string.  Why?
-    // TODO: Remove the trailing .
-    str += string(num) + "."
+  for i, num := range ipAddr {
+    str += strconv.FormatUint(uint64(num), 10)
+    if i < len(ipAddr)-1 {
+      str += "."
+    }
   }
 
   return str
