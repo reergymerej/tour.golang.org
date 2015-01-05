@@ -1,0 +1,1 @@
+These are my answers for the exercises on the [Go programming language tour](http://tour.golang.org/).
