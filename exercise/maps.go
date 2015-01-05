@@ -13,26 +13,25 @@ func WordCount(s string) map[string]int {
   // http://golang.org/pkg/strings/#Fields
   var words []string = strings.Fields(s)
 
-  var wordCount = len(words)
-  
-  for i := 0; i < wordCount; i++ {
-    var word = words[i]
-    
-    // Use `_` to keep the compiler happy since
-    // we won't actually use the value.
+  // range form of `for` to loop through array
+  // Use `_` to keep the compiler happy since
+  // we won't actually use the index.
+  for _, word := range words {
+
+    // Use `_` again since we won't use the value.
     _, exists := wordMap[word]
-    
+
     if !exists {
       // add it to the map and tally it
       wordMap[word] = 1
 
     } else {
 
-      // increment the existing count 
+      // increment the existing count
       wordMap[word]++
     }
   }
-  
+
   return wordMap
 }
 
